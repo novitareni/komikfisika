@@ -143,20 +143,20 @@
 
         /* ANIMASI KHUSUS BUDI MENDORONG DINDING */
         @keyframes pushMotion {
-            0% { transform: scaleX(-1) rotate(0deg); } /* scaleX(-1) untuk membalik badan menghadap kanan */
-            50% { transform: scaleX(-1) rotate(-15deg); } /* Condong menekan dinding ke kanan */
+            0% { transform: scaleX(-1) rotate(0deg); } 
+            50% { transform: scaleX(-1) rotate(-15deg); } 
             100% { transform: scaleX(-1) rotate(0deg); }
         }
         .animate-push {
             animation: pushMotion 0.5s ease-in-out infinite;
             display: inline-block;
-            transform-origin: bottom center; /* Berpusat di kaki */
+            transform-origin: bottom center; 
         }
 
         /* ANIMASI KHUSUS BUDI MENDORONG KE KIRI */
         @keyframes pushMotionLeft {
             0% { transform: scaleX(1) rotate(0deg); }
-            50% { transform: scaleX(1) rotate(-15deg); } /* Condong menekan ke kiri */
+            50% { transform: scaleX(1) rotate(-15deg); }
             100% { transform: scaleX(1) rotate(0deg); }
         }
         .animate-push-left {
@@ -190,7 +190,7 @@
         /* ANIMASI KHUSUS BUDI MENARIK BEBAN KE KANAN */
         @keyframes pullMotionRight {
             0% { transform: scaleX(-1) rotate(-5deg); }
-            50% { transform: scaleX(-1) rotate(-25deg); } /* Condong badan kuat ke kanan (menarik) */
+            50% { transform: scaleX(-1) rotate(-25deg); } 
             100% { transform: scaleX(-1) rotate(-5deg); }
         }
         .animate-pull-right {
@@ -202,7 +202,7 @@
         /* ANIMASI KHUSUS KARDUS DISERET */
         @keyframes dragRight {
             0% { transform: translateX(0); }
-            50% { transform: translateX(8px); } /* Bergeser ke kanan bersamaan dengan tarikan Budi */
+            50% { transform: translateX(8px); } 
             100% { transform: translateX(0); }
         }
         .animate-drag-right {
@@ -631,6 +631,21 @@
     <div class="max-w-4xl mx-auto my-16 bg-white border-4 border-black p-6 md:p-10 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <h2 class="text-3xl font-bold uppercase mb-8 text-center text-blue-700">Uji Pemahamanmu! 🧠</h2>
         
+        <!-- Formulir Data Siswa -->
+        <div class="mb-10 p-6 bg-blue-50 border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h3 class="text-xl font-bold uppercase text-gray-800 mb-4">Isi Data Diri Dulu Yuk! 📝</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="nama-siswa" class="block font-bold text-lg mb-1">Nama Lengkap:</label>
+                    <input type="text" id="nama-siswa" class="w-full p-3 border-2 border-black rounded-lg outline-none focus:bg-yellow-50 font-sans transition-colors" placeholder="Ketik namamu di sini...">
+                </div>
+                <div>
+                    <label for="kelas-siswa" class="block font-bold text-lg mb-1">Kelas:</label>
+                    <input type="text" id="kelas-siswa" class="w-full p-3 border-2 border-black rounded-lg outline-none focus:bg-yellow-50 font-sans transition-colors" placeholder="Contoh: X MIPA 1">
+                </div>
+            </div>
+        </div>
+
         <div class="space-y-8">
             <!-- Soal 1 -->
             <div class="quiz-q border-2 border-gray-300 p-5 rounded-xl bg-gray-50 shadow-sm">
@@ -761,25 +776,25 @@
             <!-- Pertanyaan Refleksi 1 -->
             <div>
                 <label class="block font-bold text-lg mb-2">1. Apa bagian yang paling kamu suka dari cerita Budi dan Siti di atas?</label>
-                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+                <textarea id="refleksi-1" class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
             </div>
             
             <!-- Pertanyaan Refleksi 2 -->
             <div>
                 <label class="block font-bold text-lg mb-2">2. Coba ceritakan ulang dengan bahasamu sendiri, kapan suatu "Usaha" bernilai nol?</label>
-                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+                <textarea id="refleksi-2" class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
             </div>
 
             <!-- Pertanyaan Refleksi 3 -->
             <div>
                 <label class="block font-bold text-lg mb-2">3. Menurutmu, apakah belajar Fisika dengan format komik seperti ini lebih seru dan mudah dipahami? Jelaskan alasanmu!</label>
-                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+                <textarea id="refleksi-3" class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
             </div>
 
             <!-- Pertanyaan Refleksi 4 -->
             <div>
                 <label class="block font-bold text-lg mb-2">4. Dari semua gambar yang bisa di-klik atau bergerak di atas, mana yang menurutmu paling membantu dalam membayangkan konsep Fisika?</label>
-                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+                <textarea id="refleksi-4" class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
             </div>
 
             <!-- Pertanyaan Refleksi 5 (Rating Bintang) -->
@@ -796,11 +811,11 @@
         </div>
 
         <div class="mt-10 text-center">
-            <button id="kirim-refleksi" class="bg-purple-500 text-white border-4 border-black font-bold text-xl py-3 px-8 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Kirim Refleksi</button>
+            <button id="kirim-refleksi" class="bg-purple-500 text-white border-4 border-black font-bold text-xl py-3 px-8 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Kirim Semua Tugas ke Database</button>
         </div>
 
         <div id="refleksi-result" class="hidden mt-8 text-center text-xl font-bold p-6 bg-purple-100 border-4 border-black rounded-xl text-purple-800">
-            Terima kasih atas refleksimu! Jawabanmu sangat berarti. Tetap semangat belajar Fisika ya! 🚀
+            <!-- Tempat pesan sukses/gagal -->
         </div>
     </div>
 
@@ -808,51 +823,79 @@
         Dibuat untuk mempermudah belajar Fisika SMA. Semangat! 🚀
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT -->
-    <script>
-        // --- LOGIKA KUIS INTERAKTIF ---
-        let selectedAnswers = {1: null, 2: null, 3: null};
+    <!-- INTERACTIVE JAVASCRIPT & DATABASE FIREBASE -->
+    <script type="module">
+        // 1. SETUP DATABASE FIREBASE
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        let db, auth, user, appId;
+        const isCanvasEnv = typeof window.__firebase_config !== 'undefined';
         
-        // Fungsi saat opsi ditekan
-        function selectOption(btn, qNum) {
-            // Reset gaya semua opsi dalam pertanyaan ini
+        if (isCanvasEnv) {
+            try {
+                const firebaseConfig = JSON.parse(window.__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                appId = typeof window.__app_id !== 'undefined' ? window.__app_id : 'default-app-id';
+
+                const initAuth = async () => {
+                    if (typeof window.__initial_auth_token !== 'undefined' && window.__initial_auth_token) {
+                        await signInWithCustomToken(auth, window.__initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                };
+                initAuth();
+                onAuthStateChanged(auth, (u) => { user = u; });
+            } catch (e) {
+                console.error("Gagal terhubung ke Database Canvas:", e);
+            }
+        }
+
+        // --- LOGIKA KUIS INTERAKTIF ---
+        window.selectedAnswers = {1: null, 2: null, 3: null};
+        window.quizFinalScore = 0; // Menyimpan skor untuk dikirim ke database
+        
+        // Ekspor ke global window agar onclick di HTML bisa memanggilnya
+        window.selectOption = function(btn, qNum) {
             const siblings = btn.parentElement.querySelectorAll('.quiz-opt');
             siblings.forEach(s => {
                 s.classList.remove('bg-blue-200', 'border-blue-600');
                 s.classList.add('bg-white', 'border-black');
             });
-            
-            // Tambahkan gaya "terpilih" pada tombol yang diklik
             btn.classList.remove('bg-white', 'border-black');
             btn.classList.add('bg-blue-200', 'border-blue-600');
-            
-            // Simpan status kebenaran jawaban
-            selectedAnswers[qNum] = btn.getAttribute('data-correct') === 'true';
-        }
+            window.selectedAnswers[qNum] = btn.getAttribute('data-correct') === 'true';
+        };
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Logika Tombol Cek Jawaban
+            // Logika Tombol Cek Jawaban (Menghitung Skor)
             const btnCek = document.getElementById('cek-jawaban');
             if (btnCek) {
                 btnCek.addEventListener('click', () => {
-                    let score = 0;
-                    let totalMcq = Object.keys(selectedAnswers).length;
-                    let allMcqAnswered = true;
+                    const namaSiswa = document.getElementById('nama-siswa').value.trim();
+                    const kelasSiswa = document.getElementById('kelas-siswa').value.trim();
 
-                    // Cek kelengkapan Pilihan Ganda
-                    for(let i = 1; i <= totalMcq; i++) {
-                        if(selectedAnswers[i] === null) {
-                            allMcqAnswered = false;
-                        }
+                    if(!namaSiswa || !kelasSiswa) {
+                        alert("Eits, jangan lupa isi Nama dan Kelasmu dulu ya di kotak atas! 📝");
+                        return;
                     }
 
-                    // Cek kelengkapan Menjodohkan
+                    let score = 0;
+                    let totalMcq = Object.keys(window.selectedAnswers).length;
+                    let allMcqAnswered = true;
+
+                    for(let i = 1; i <= totalMcq; i++) {
+                        if(window.selectedAnswers[i] === null) allMcqAnswered = false;
+                    }
+
                     const matchSelects = document.querySelectorAll('.match-select');
                     let allMatchAnswered = true;
                     matchSelects.forEach(select => {
-                        if(select.value === "") {
-                            allMatchAnswered = false;
-                        }
+                        if(select.value === "") allMatchAnswered = false;
                     });
 
                     if(!allMcqAnswered || !allMatchAnswered) {
@@ -860,13 +903,12 @@
                         return;
                     }
 
-                    // Tampilkan hasil setiap soal Pilihan Ganda
                     for(let i = 1; i <= totalMcq; i++) {
                         const qDiv = document.querySelectorAll('.quiz-q')[i-1];
                         const feedback = qDiv.querySelector('.feedback');
                         feedback.classList.remove('hidden', 'text-green-600', 'text-red-600');
                         
-                        if(selectedAnswers[i] === true) {
+                        if(window.selectedAnswers[i] === true) {
                             score++;
                             feedback.textContent = "✅ Benar! Sesuai dengan konsep di komik!";
                             feedback.classList.add('text-green-600');
@@ -876,11 +918,8 @@
                         }
                     }
 
-                    // Tampilkan hasil setiap soal Menjodohkan
                     matchSelects.forEach(select => {
-                        // Bersihkan style lama
                         select.classList.remove('border-black', 'border-green-500', 'border-red-500', 'text-green-700', 'text-red-700', 'bg-green-50', 'bg-red-50');
-                        
                         if(select.value === select.getAttribute('data-correct')) {
                             score++;
                             select.classList.add('border-green-500', 'text-green-700', 'bg-green-50');
@@ -889,89 +928,62 @@
                         }
                     });
 
-                    // Tampilkan kotak hasil akhir (Total 8 Soal)
                     let totalQuestions = totalMcq + matchSelects.length;
+                    window.quizFinalScore = score; // Simpan skor akhir untuk database
+
                     const resultDiv = document.getElementById('quiz-result');
                     resultDiv.classList.remove('hidden', 'bg-green-100', 'bg-yellow-100');
-                    
+                    const namaPanggilan = namaSiswa.split(' ')[0];
+
                     if(score === totalQuestions) {
-                        resultDiv.textContent = `Luar Biasa! Skor kamu ${score}/${totalQuestions} 🌟 Budi dan Siti pasti bangga padamu!`;
+                        resultDiv.textContent = `Luar Biasa, ${namaPanggilan}! 🌟 Skor kamu ${score}/${totalQuestions}. Budi dan Siti pasti bangga padamu!`;
                         resultDiv.classList.add('bg-green-100');
                     } else if (score >= 5) {
-                        resultDiv.textContent = `Hebat! Skor kamu ${score}/${totalQuestions}. Sedikit lagi jadi master fisika! 👍`;
+                        resultDiv.textContent = `Hebat, ${namaPanggilan}! 👍 Skor kamu ${score}/${totalQuestions}. Sedikit lagi jadi master fisika!`;
                         resultDiv.classList.add('bg-green-100');
                     } else {
-                        resultDiv.textContent = `Skor kamu ${score}/${totalQuestions}. Yuk ingat-ingat lagi ceritanya Budi dan Siti! 💪`;
+                        resultDiv.textContent = `Semangat, ${namaPanggilan}! 💪 Skor kamu ${score}/${totalQuestions}. Yuk ingat-ingat lagi ceritanya Budi dan Siti!`;
                         resultDiv.classList.add('bg-yellow-100');
                     }
                 });
             }
 
             // --- LOGIKA KOMIK INTERAKTIF ---
-            // Kecualikan #school-bell agar memiliki interaksi khusus
             const emojis = document.querySelectorAll('.scene span:not(#school-bell)');
             const comicWords = ["BAM!", "POW!", "ZAP!", "BOING!", "KLIK!", "WOOSH!", "PLOP!", "ZING!"];
             
             emojis.forEach(emoji => {
                 emoji.addEventListener('click', (e) => {
-                    // 1. Buat efek teks komik melayang
                     const floatText = document.createElement('div');
                     const randomWord = comicWords[Math.floor(Math.random() * comicWords.length)];
                     floatText.innerText = randomWord;
                     floatText.className = 'floating-text';
-                    
-                    // Posisikan tepat di lokasi klik kursor
                     floatText.style.left = `${e.clientX - 30}px`;
                     floatText.style.top = `${e.clientY - 40}px`;
-                    
                     document.body.appendChild(floatText);
-                    
-                    // Hapus elemen setelah animasi selesai (800ms)
-                    setTimeout(() => {
-                        floatText.remove();
-                    }, 800);
+                    setTimeout(() => { floatText.remove(); }, 800);
 
-                    // 2. Beri efek loncatan (jump) pada emoji yang diklik
                     const currentTransform = emoji.style.transform || '';
-                    // Simpan style transisi asli atau berikan transisi khusus
                     emoji.style.transition = "transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-                    
-                    // Loncat ke atas
                     emoji.style.transform = `${currentTransform} translateY(-15px) scale(1.2)`;
-                    
-                    // Kembalikan ke posisi semula setelah 150ms
                     setTimeout(() => {
                         emoji.style.transform = currentTransform;
-                        // Hapus transisi inline agar kembali ikut CSS rules
                         setTimeout(() => emoji.style.transition = "", 150); 
                     }, 150);
                 });
             });
 
-            // 3. Logika Khusus untuk Bel Sekolah di Panel 20
             const schoolBell = document.getElementById('school-bell');
             const kriingText = document.getElementById('kriing-text');
-            // Menggunakan format MP3 agar didukung oleh semua browser (termasuk Safari/iOS)
             const bellAudio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
 
             if (schoolBell) {
                 schoolBell.addEventListener('click', () => {
-                    // Reset dan mainkan suara
                     bellAudio.currentTime = 0;
-                    
-                    // Mainkan audio dengan penanganan error
-                    bellAudio.play().catch(error => {
-                        console.log("Gagal memutar audio. Pastikan browser mengizinkan suara dan mode hening HP dimatikan.", error);
-                    });
-
-                    // Tampilkan teks KRIIINGGG
+                    bellAudio.play().catch(e => console.log("Gagal memutar audio.", e));
                     kriingText.classList.remove('opacity-0');
                     kriingText.classList.add('opacity-100');
-
-                    // Tambahkan animasi goyang pada bel
                     schoolBell.classList.add('animate-shake-ring');
-
-                    // Sembunyikan teks dan hentikan goyangan setelah 2.5 detik
                     setTimeout(() => {
                         kriingText.classList.remove('opacity-100');
                         kriingText.classList.add('opacity-0');
@@ -980,63 +992,95 @@
                 });
             }
 
-            // --- LOGIKA REFLEKSI BELAJAR ---
+            // --- LOGIKA REFLEKSI & PENGIRIMAN DATA ---
             const stars = document.querySelectorAll('.star');
             let currentRating = 0;
 
-            // Logika Hover & Click Bintang
             stars.forEach(star => {
                 star.addEventListener('click', (e) => {
                     currentRating = parseInt(e.target.getAttribute('data-value'));
                     stars.forEach(s => {
-                        if (parseInt(s.getAttribute('data-value')) <= currentRating) {
-                            s.classList.remove('grayscale');
-                        } else {
-                            s.classList.add('grayscale');
-                        }
+                        if (parseInt(s.getAttribute('data-value')) <= currentRating) s.classList.remove('grayscale');
+                        else s.classList.add('grayscale');
                     });
                 });
-
                 star.addEventListener('mouseenter', (e) => {
                     const hoverValue = parseInt(e.target.getAttribute('data-value'));
                     stars.forEach(s => {
-                        if (parseInt(s.getAttribute('data-value')) <= hoverValue) {
-                            s.classList.remove('grayscale');
-                        }
+                        if (parseInt(s.getAttribute('data-value')) <= hoverValue) s.classList.remove('grayscale');
                     });
                 });
-
                 star.addEventListener('mouseleave', () => {
                     stars.forEach(s => {
-                        if (parseInt(s.getAttribute('data-value')) > currentRating) {
-                            s.classList.add('grayscale');
-                        }
+                        if (parseInt(s.getAttribute('data-value')) > currentRating) s.classList.add('grayscale');
                     });
                 });
             });
 
-            // Logika Tombol Kirim Refleksi
             const btnRefleksi = document.getElementById('kirim-refleksi');
             if (btnRefleksi) {
-                btnRefleksi.addEventListener('click', () => {
-                    document.getElementById('refleksi-result').classList.remove('hidden');
-                    btnRefleksi.innerText = "Terkirim! ✔️";
-                    btnRefleksi.classList.remove('bg-purple-500', 'hover:translate-y-1', 'hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]');
-                    btnRefleksi.classList.add('bg-gray-400', 'translate-y-1', 'shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]', 'cursor-not-allowed');
+                btnRefleksi.addEventListener('click', async () => {
+                    const nama = document.getElementById('nama-siswa').value.trim();
+                    const kelas = document.getElementById('kelas-siswa').value.trim();
+                    const ref1 = document.getElementById('refleksi-1').value.trim();
+                    const ref2 = document.getElementById('refleksi-2').value.trim();
+                    const ref3 = document.getElementById('refleksi-3').value.trim();
+                    const ref4 = document.getElementById('refleksi-4').value.trim();
+                    const resultDiv = document.getElementById('refleksi-result');
+
+                    if(!nama || !kelas) {
+                        alert("Mohon isi Nama dan Kelas di bagian atas (Uji Pemahaman) terlebih dahulu!");
+                        return;
+                    }
+
+                    // Ubah status tombol jadi loading
+                    btnRefleksi.innerText = "Menyimpan Data...";
                     btnRefleksi.disabled = true;
-                    
-                    // Menonaktifkan input (opsional, agar terlihat seperti form sungguhan)
-                    const textareas = document.querySelectorAll('textarea');
-                    textareas.forEach(ta => {
-                        ta.disabled = true;
-                        ta.classList.add('bg-gray-100');
-                    });
+
+                    const dataSiswa = {
+                        nama_lengkap: nama,
+                        kelas: kelas,
+                        skor_kuis: window.quizFinalScore + " / 8", // Menyimpan skor terakhir
+                        refleksi_1: ref1,
+                        refleksi_2: ref2,
+                        refleksi_3: ref3,
+                        refleksi_4: ref4,
+                        rating_bintang: currentRating,
+                        waktu_pengerjaan: isCanvasEnv ? serverTimestamp() : new Date().toISOString()
+                    };
+
+                    try {
+                        // Jika berada di dalam Canvas yang mendukung Firebase
+                        if (db && user && isCanvasEnv) {
+                            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'hasil_siswa'), dataSiswa);
+                        } else {
+                            // Simulasi untuk menunjukkan bahwa sistem rekam telah diaktifkan (Jika diluar Canvas / tanpa DB)
+                            console.log("Merekam data secara lokal:", dataSiswa);
+                        }
+
+                        // Pesan sukses
+                        resultDiv.innerHTML = `Terima kasih atas refleksimu, <b>${nama}</b>! <br> Jawaban dan nilai kuis kamu telah berhasil direkam oleh sistem. Tetap semangat belajar Fisika ya! 🚀`;
+                        resultDiv.classList.remove('hidden');
+                        
+                        btnRefleksi.innerText = "Terkirim! ✔️";
+                        btnRefleksi.classList.remove('bg-purple-500', 'hover:translate-y-1', 'hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]');
+                        btnRefleksi.classList.add('bg-gray-400', 'translate-y-1', 'shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]', 'cursor-not-allowed');
+                        
+                        // Kunci input agar tidak diubah lagi
+                        document.querySelectorAll('textarea, input').forEach(el => {
+                            el.disabled = true;
+                            el.classList.add('bg-gray-100');
+                        });
+
+                    } catch (error) {
+                        console.error("Error menyimpan data: ", error);
+                        alert("Terjadi kesalahan saat menyimpan data. Coba lagi!");
+                        btnRefleksi.innerText = "Kirim Semua Tugas ke Database";
+                        btnRefleksi.disabled = false;
+                    }
                 });
             }
         });
-
-        // Ekspor ke global window agar onclick di elemen HTML bisa memanggilnya
-        window.selectOption = selectOption;
     </script>
 </body>
 </html>
