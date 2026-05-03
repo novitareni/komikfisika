@@ -811,7 +811,7 @@
         </div>
 
         <div class="mt-10 text-center">
-            <button id="kirim-refleksi" class="bg-purple-500 text-white border-4 border-black font-bold text-xl py-3 px-8 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Kirim Semua Tugas ke Database</button>
+            <button id="kirim-refleksi" class="bg-purple-500 text-white border-4 border-black font-bold text-xl py-3 px-8 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Kirim Semua Tugas ke Guruku</button>
         </div>
 
         <div id="refleksi-result" class="hidden mt-8 text-center text-xl font-bold p-6 bg-purple-100 border-4 border-black rounded-xl text-purple-800">
@@ -823,41 +823,11 @@
         Dibuat untuk mempermudah belajar Fisika SMA. Semangat! 🚀
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT & DATABASE FIREBASE -->
-    <script type="module">
-        // 1. SETUP DATABASE FIREBASE
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        let db, auth, user, appId;
-        const isCanvasEnv = typeof window.__firebase_config !== 'undefined';
-        
-        if (isCanvasEnv) {
-            try {
-                const firebaseConfig = JSON.parse(window.__firebase_config);
-                const app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                appId = typeof window.__app_id !== 'undefined' ? window.__app_id : 'default-app-id';
-
-                const initAuth = async () => {
-                    if (typeof window.__initial_auth_token !== 'undefined' && window.__initial_auth_token) {
-                        await signInWithCustomToken(auth, window.__initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                };
-                initAuth();
-                onAuthStateChanged(auth, (u) => { user = u; });
-            } catch (e) {
-                console.error("Gagal terhubung ke Database Canvas:", e);
-            }
-        }
-
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
         // --- LOGIKA KUIS INTERAKTIF ---
         window.selectedAnswers = {1: null, 2: null, 3: null};
-        window.quizFinalScore = 0; // Menyimpan skor untuk dikirim ke database
+        window.quizFinalScore = 0; // Menyimpan skor untuk dikirim ke Google Sheet
         
         // Ekspor ke global window agar onclick di HTML bisa memanggilnya
         window.selectOption = function(btn, qNum) {
@@ -929,7 +899,7 @@
                     });
 
                     let totalQuestions = totalMcq + matchSelects.length;
-                    window.quizFinalScore = score; // Simpan skor akhir untuk database
+                    window.quizFinalScore = score; // Simpan skor akhir
 
                     const resultDiv = document.getElementById('quiz-result');
                     resultDiv.classList.remove('hidden', 'bg-green-100', 'bg-yellow-100');
@@ -992,7 +962,12 @@
                 });
             }
 
-            // --- LOGIKA REFLEKSI & PENGIRIMAN DATA ---
+            // --- LOGIKA REFLEKSI & PENGIRIMAN DATA KE GOOGLE SPREADSHEET ---
+            
+            // 👇 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👇
+            const scriptURL = 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI'; 
+            // 👆 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👆
+
             const stars = document.querySelectorAll('.star');
             let currentRating = 0;
 
@@ -1033,33 +1008,40 @@
                         return;
                     }
 
+                    // Peringatkan guru jika URL belum diubah (Khusus saat uji coba)
+                    if(scriptURL === 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI') {
+                        alert("Peringatan Sistem: Bu Novita, Anda belum memasukkan Link Google Apps Script Anda ke dalam kode HTML.");
+                        return;
+                    }
+
                     // Ubah status tombol jadi loading
-                    btnRefleksi.innerText = "Menyimpan Data...";
+                    btnRefleksi.innerText = "Menyimpan Data ke Spreadsheet...";
                     btnRefleksi.disabled = true;
 
                     const dataSiswa = {
+                        waktu: new Date().toLocaleString('id-ID'),
                         nama_lengkap: nama,
                         kelas: kelas,
-                        skor_kuis: window.quizFinalScore + " / 8", // Menyimpan skor terakhir
+                        skor_kuis: window.quizFinalScore + " / 8",
                         refleksi_1: ref1,
                         refleksi_2: ref2,
                         refleksi_3: ref3,
                         refleksi_4: ref4,
-                        rating_bintang: currentRating,
-                        waktu_pengerjaan: isCanvasEnv ? serverTimestamp() : new Date().toISOString()
+                        rating_bintang: currentRating
                     };
 
                     try {
-                        // Jika berada di dalam Canvas yang mendukung Firebase
-                        if (db && user && isCanvasEnv) {
-                            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'hasil_siswa'), dataSiswa);
-                        } else {
-                            // Simulasi untuk menunjukkan bahwa sistem rekam telah diaktifkan (Jika diluar Canvas / tanpa DB)
-                            console.log("Merekam data secara lokal:", dataSiswa);
-                        }
+                        // Mengirim data JSON ke Google Apps Script tanpa masalah CORS
+                        const response = await fetch(scriptURL='https://docs.google.com/spreadsheets/d/1GgICYKHt5_562WdjB2cYNO4K3k7vOORQqK7LyLpiuVg/edit?usp=sharing', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'text/plain;charset=utf-8',
+                            },
+                            body: JSON.stringify(dataSiswa)
+                        });
 
                         // Pesan sukses
-                        resultDiv.innerHTML = `Terima kasih atas refleksimu, <b>${nama}</b>! <br> Jawaban dan nilai kuis kamu telah berhasil direkam oleh sistem. Tetap semangat belajar Fisika ya! 🚀`;
+                        resultDiv.innerHTML = `Terima kasih atas refleksimu, <b>${nama}</b>! <br> Jawaban dan nilai kuis kamu telah berhasil direkam dan dikirim ke Bu Novita. Tetap semangat belajar Fisika ya! 🚀`;
                         resultDiv.classList.remove('hidden');
                         
                         btnRefleksi.innerText = "Terkirim! ✔️";
@@ -1074,8 +1056,8 @@
 
                     } catch (error) {
                         console.error("Error menyimpan data: ", error);
-                        alert("Terjadi kesalahan saat menyimpan data. Coba lagi!");
-                        btnRefleksi.innerText = "Kirim Semua Tugas ke Database";
+                        alert("Terjadi kesalahan saat mengirim data. Pastikan koneksi internet stabil dan URL Spreadsheet sudah benar.");
+                        btnRefleksi.innerText = "Kirim Semua Tugas ke Guruku";
                         btnRefleksi.disabled = false;
                     }
                 });
