@@ -965,7 +965,9 @@
             // --- LOGIKA REFLEKSI & PENGIRIMAN DATA KE GOOGLE SPREADSHEET ---
             
             // 👇 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👇
-            const scriptURL = 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI'; 
+            // CATATAN: Pastikan link ini berawalan "https://script.google.com/..." 
+            // BUKAN link docs.google.com!
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxX03l9T-8qj8YEYM1EUejkDo3xSsm4ARSwgeCz3JjKZTS8zw5HbFuNR5DiNgd8Orci/exec'; 
             // 👆 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👆
 
             const stars = document.querySelectorAll('.star');
@@ -1008,7 +1010,7 @@
                         return;
                     }
 
-                    // Peringatkan guru jika URL belum diubah (Khusus saat uji coba)
+                    // Peringatkan guru jika URL belum diubah
                     if(scriptURL === 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI') {
                         alert("Peringatan Sistem: Bu Novita, Anda belum memasukkan Link Google Apps Script Anda ke dalam kode HTML.");
                         return;
@@ -1032,7 +1034,7 @@
 
                     try {
                         // Mengirim data JSON ke Google Apps Script tanpa masalah CORS
-                        const response = await fetch(scriptURL, {
+                        const response = await fetch(scriptURL='https://script.google.com/macros/s/AKfycbxX03l9T-8qj8YEYM1EUejkDo3xSsm4ARSwgeCz3JjKZTS8zw5HbFuNR5DiNgd8Orci/exec', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'text/plain;charset=utf-8',
