@@ -1032,7 +1032,7 @@
 
                     try {
                         // Mengirim data JSON ke Google Apps Script tanpa masalah CORS
-                        const response = await fetch(scriptURL='https://docs.google.com/spreadsheets/d/1GgICYKHt5_562WdjB2cYNO4K3k7vOORQqK7LyLpiuVg/edit?usp=sharing', {
+                        const response = await fetch(scriptURL, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'text/plain;charset=utf-8',
