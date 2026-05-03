@@ -965,10 +965,7 @@
             // --- LOGIKA REFLEKSI & PENGIRIMAN DATA KE GOOGLE SPREADSHEET ---
             
             // 👇 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👇
-            // CATATAN: Pastikan link ini berawalan "https://script.google.com/..." 
-            // BUKAN link docs.google.com!
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxX03l9T-8qj8YEYM1EUejkDo3xSsm4ARSwgeCz3JjKZTS8zw5HbFuNR5DiNgd8Orci/exec'; 
-            // 👆 GANTI BAGIAN INI DENGAN LINK WEB APP DARI GOOGLE SCRIPT ANDA 👆
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyrmrfKmPX79dIAOMXAxwzE0vrxai_Kko0d7v7Qcz-HWmj58SW7CHk_HaLt2k7_Ls2-/exec'; 
 
             const stars = document.querySelectorAll('.star');
             let currentRating = 0;
@@ -1010,7 +1007,6 @@
                         return;
                     }
 
-                    // Peringatkan guru jika URL belum diubah
                     if(scriptURL === 'MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DISINI') {
                         alert("Peringatan Sistem: Bu Novita, Anda belum memasukkan Link Google Apps Script Anda ke dalam kode HTML.");
                         return;
@@ -1033,16 +1029,17 @@
                     };
 
                     try {
-                        // Mengirim data JSON ke Google Apps Script tanpa masalah CORS
-                        const response = await fetch(scriptURL='https://script.google.com/macros/s/AKfycbxX03l9T-8qj8YEYM1EUejkDo3xSsm4ARSwgeCz3JjKZTS8zw5HbFuNR5DiNgd8Orci/exec', {
+                        // Menggunakan mode no-cors untuk melewati pemblokiran browser pada pengiriman lintas platform
+                        await fetch(scriptURL, {
                             method: 'POST',
+                            mode: 'no-cors',
                             headers: {
-                                'Content-Type': 'text/plain;charset=utf-8',
+                                'Content-Type': 'text/plain',
                             },
                             body: JSON.stringify(dataSiswa)
                         });
 
-                        // Pesan sukses
+                        // Karena menggunakan no-cors, respons tidak dapat dibaca, jadi kita asumsikan berhasil terkirim
                         resultDiv.innerHTML = `Terima kasih atas refleksimu, <b>${nama}</b>! <br> Jawaban dan nilai kuis kamu telah berhasil direkam dan dikirim ke Bu Novita. Tetap semangat belajar Fisika ya! 🚀`;
                         resultDiv.classList.remove('hidden');
                         
