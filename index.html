@@ -271,6 +271,12 @@
     <header class="max-w-6xl mx-auto mb-10 text-center bg-white border-4 border-black p-6 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:scale-[1.01] transition-transform">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 uppercase tracking-wider mb-2">Usaha Keras <span class="text-red-500">VS</span> Usaha Fisika</h1>
         <p class="text-xl text-gray-600 font-bold">Menampilkan: Budi (Si Energik) & Siti (Si Jago Fisika)</p>
+        
+        <!-- Informasi Pembuat -->
+        <div class="mt-6 inline-block bg-yellow-200 border-2 border-black px-6 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all cursor-default">
+            <p class="font-bold text-lg text-black uppercase">Oleh: NOVITA RENI., S.Si</p>
+            <p class="font-bold text-md text-gray-800">SMA N 1 BANUHAMPU</p>
+        </div>
     </header>
 
     <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -621,13 +627,287 @@
 
     </div>
 
+    <!-- SESI KUIS INTERAKTIF -->
+    <div class="max-w-4xl mx-auto my-16 bg-white border-4 border-black p-6 md:p-10 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <h2 class="text-3xl font-bold uppercase mb-8 text-center text-blue-700">Uji Pemahamanmu! 🧠</h2>
+        
+        <div class="space-y-8">
+            <!-- Soal 1 -->
+            <div class="quiz-q border-2 border-gray-300 p-5 rounded-xl bg-gray-50 shadow-sm">
+                <p class="font-bold text-lg mb-4">1. Jika Budi mendorong tembok beton dengan gaya sangat besar hingga dia kelelahan, namun tembok tidak bergeser sama sekali. Berapa nilai usaha yang dilakukan Budi menurut Fisika?</p>
+                <div class="flex flex-col space-y-3">
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 1)">A. Sangat besar, karena butuh banyak energi</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="true" onclick="selectOption(this, 1)">B. 0 Joule, karena tidak ada perpindahan (s = 0)</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 1)">C. Tidak dapat dihitung karena tidak ada penggaris</button>
+                </div>
+                <p class="feedback hidden mt-4 font-bold text-lg"></p>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="quiz-q border-2 border-gray-300 p-5 rounded-xl bg-gray-50 shadow-sm">
+                <p class="font-bold text-lg mb-4">2. Budi menarik meja dengan gaya 20 Newton sejauh 3 meter ke arah depan. Berapakah usaha yang dilakukan Budi?</p>
+                <div class="flex flex-col space-y-3">
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 2)">A. 20 Joule</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 2)">B. 23 Joule</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="true" onclick="selectOption(this, 2)">C. 60 Joule</button>
+                </div>
+                <p class="feedback hidden mt-4 font-bold text-lg"></p>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="quiz-q border-2 border-gray-300 p-5 rounded-xl bg-gray-50 shadow-sm">
+                <p class="font-bold text-lg mb-4">3. Menurut "Teorema Usaha-Energi", nilai usaha yang dilakukan pada suatu benda setara dengan...</p>
+                <div class="flex flex-col space-y-3">
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 3)">A. Berat benda tersebut</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="true" onclick="selectOption(this, 3)">B. Perubahan energi kinetik benda tersebut</button>
+                    <button class="quiz-opt bg-white border-2 border-black p-3 rounded-lg hover:bg-blue-100 text-left font-bold transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" data-correct="false" onclick="selectOption(this, 3)">C. Kecepatan akhir benda dikali waktu</button>
+                </div>
+                <p class="feedback hidden mt-4 font-bold text-lg"></p>
+            </div>
+        </div>
+
+        <!-- BAGIAN 2: MENJODOHKAN -->
+        <div class="mt-16 mb-8 text-center border-t-4 border-dashed border-gray-300 pt-10">
+            <h3 class="text-2xl font-bold uppercase text-blue-700 mb-2">Bagian 2: Pasangan Sejati 🧩</h3>
+            <p class="text-gray-600 font-bold text-lg">Pilih pasangan rumus atau konsep yang paling tepat di kotak sebelah kanan!</p>
+        </div>
+
+        <div class="space-y-4" id="matching-quiz">
+            <!-- Pasangan 1 -->
+            <div class="flex flex-col md:flex-row gap-4 items-center bg-gray-50 p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                <div class="flex-1 font-bold text-lg">4. Budi mendorong tembok tapi tidak bergeser sama sekali.</div>
+                <div class="flex-1 w-full md:w-auto">
+                    <select class="match-select w-full p-3 border-2 border-black rounded-lg bg-white font-bold cursor-pointer outline-none transition-colors hover:bg-blue-50" data-correct="A">
+                        <option value="">-- Pilih Pasangan yang Tepat --</option>
+                        <option value="A">Usaha = 0 Joule (karena perpindahan = 0)</option>
+                        <option value="B">W = F · s · cos(θ)</option>
+                        <option value="C">Usaha = 0 Joule (Gaya tegak lurus arah jalan)</option>
+                        <option value="D">W = F · s</option>
+                        <option value="E">Teorema Usaha - Energi Kinetik</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Pasangan 2 -->
+            <div class="flex flex-col md:flex-row gap-4 items-center bg-gray-50 p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                <div class="flex-1 font-bold text-lg">5. Menarik meja menggunakan tali bersudut kemiringan tertentu.</div>
+                <div class="flex-1 w-full md:w-auto">
+                    <select class="match-select w-full p-3 border-2 border-black rounded-lg bg-white font-bold cursor-pointer outline-none transition-colors hover:bg-blue-50" data-correct="B">
+                        <option value="">-- Pilih Pasangan yang Tepat --</option>
+                        <option value="A">Usaha = 0 Joule (karena perpindahan = 0)</option>
+                        <option value="B">W = F · s · cos(θ)</option>
+                        <option value="C">Usaha = 0 Joule (Gaya tegak lurus arah jalan)</option>
+                        <option value="D">W = F · s</option>
+                        <option value="E">Teorema Usaha - Energi Kinetik</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Pasangan 3 -->
+            <div class="flex flex-col md:flex-row gap-4 items-center bg-gray-50 p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                <div class="flex-1 font-bold text-lg">6. Berjalan mendatar sambil memanggul galon air di pundak.</div>
+                <div class="flex-1 w-full md:w-auto">
+                    <select class="match-select w-full p-3 border-2 border-black rounded-lg bg-white font-bold cursor-pointer outline-none transition-colors hover:bg-blue-50" data-correct="C">
+                        <option value="">-- Pilih Pasangan yang Tepat --</option>
+                        <option value="A">Usaha = 0 Joule (karena perpindahan = 0)</option>
+                        <option value="B">W = F · s · cos(θ)</option>
+                        <option value="C">Usaha = 0 Joule (Gaya tegak lurus arah jalan)</option>
+                        <option value="D">W = F · s</option>
+                        <option value="E">Teorema Usaha - Energi Kinetik</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Pasangan 4 -->
+            <div class="flex flex-col md:flex-row gap-4 items-center bg-gray-50 p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                <div class="flex-1 font-bold text-lg">7. Rumus dasar Usaha jika gaya searah dengan perpindahan benda.</div>
+                <div class="flex-1 w-full md:w-auto">
+                    <select class="match-select w-full p-3 border-2 border-black rounded-lg bg-white font-bold cursor-pointer outline-none transition-colors hover:bg-blue-50" data-correct="D">
+                        <option value="">-- Pilih Pasangan yang Tepat --</option>
+                        <option value="A">Usaha = 0 Joule (karena perpindahan = 0)</option>
+                        <option value="B">W = F · s · cos(θ)</option>
+                        <option value="C">Usaha = 0 Joule (Gaya tegak lurus arah jalan)</option>
+                        <option value="D">W = F · s</option>
+                        <option value="E">Teorema Usaha - Energi Kinetik</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Pasangan 5 -->
+            <div class="flex flex-col md:flex-row gap-4 items-center bg-gray-50 p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                <div class="flex-1 font-bold text-lg">8. Nilai Usaha setara dengan perubahan energi gerak benda.</div>
+                <div class="flex-1 w-full md:w-auto">
+                    <select class="match-select w-full p-3 border-2 border-black rounded-lg bg-white font-bold cursor-pointer outline-none transition-colors hover:bg-blue-50" data-correct="E">
+                        <option value="">-- Pilih Pasangan yang Tepat --</option>
+                        <option value="A">Usaha = 0 Joule (karena perpindahan = 0)</option>
+                        <option value="B">W = F · s · cos(θ)</option>
+                        <option value="C">Usaha = 0 Joule (Gaya tegak lurus arah jalan)</option>
+                        <option value="D">W = F · s</option>
+                        <option value="E">Teorema Usaha - Energi Kinetik</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <button id="cek-jawaban" class="bg-yellow-400 border-4 border-black font-bold text-2xl py-4 px-10 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Cek Semua Jawaban!</button>
+        </div>
+        
+        <div id="quiz-result" class="hidden mt-8 text-center text-2xl font-bold p-6 border-4 border-black rounded-xl"></div>
+    </div>
+
+    <!-- SESI REFLEKSI PEMBELAJARAN -->
+    <div class="max-w-4xl mx-auto my-16 bg-white border-4 border-black p-6 md:p-10 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <h2 class="text-3xl font-bold uppercase mb-4 text-center text-purple-700">Refleksi Belajar 🤔</h2>
+        <p class="text-gray-600 font-bold text-center text-lg mb-8">Yuk, ceritakan pengalaman belajarmu setelah membaca komik ini!</p>
+        
+        <div class="space-y-6">
+            <!-- Pertanyaan Refleksi 1 -->
+            <div>
+                <label class="block font-bold text-lg mb-2">1. Apa bagian yang paling kamu suka dari cerita Budi dan Siti di atas?</label>
+                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+            </div>
+            
+            <!-- Pertanyaan Refleksi 2 -->
+            <div>
+                <label class="block font-bold text-lg mb-2">2. Coba ceritakan ulang dengan bahasamu sendiri, kapan suatu "Usaha" bernilai nol?</label>
+                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+            </div>
+
+            <!-- Pertanyaan Refleksi 3 -->
+            <div>
+                <label class="block font-bold text-lg mb-2">3. Menurutmu, apakah belajar Fisika dengan format komik seperti ini lebih seru dan mudah dipahami? Jelaskan alasanmu!</label>
+                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+            </div>
+
+            <!-- Pertanyaan Refleksi 4 -->
+            <div>
+                <label class="block font-bold text-lg mb-2">4. Dari semua gambar yang bisa di-klik atau bergerak di atas, mana yang menurutmu paling membantu dalam membayangkan konsep Fisika?</label>
+                <textarea class="w-full border-2 border-black rounded-lg p-3 outline-none focus:bg-purple-50 transition-colors shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.1)] font-sans" rows="3" placeholder="Tulis jawabanmu di sini..."></textarea>
+            </div>
+
+            <!-- Pertanyaan Refleksi 5 (Rating Bintang) -->
+            <div>
+                <label class="block font-bold text-lg mb-2">5. Berapa bintang untuk komik pembelajaran fisika ini?</label>
+                <div class="flex space-x-2 text-4xl cursor-pointer select-none w-max" id="star-rating">
+                    <span class="star grayscale hover:scale-110 transition-transform" data-value="1">⭐</span>
+                    <span class="star grayscale hover:scale-110 transition-transform" data-value="2">⭐</span>
+                    <span class="star grayscale hover:scale-110 transition-transform" data-value="3">⭐</span>
+                    <span class="star grayscale hover:scale-110 transition-transform" data-value="4">⭐</span>
+                    <span class="star grayscale hover:scale-110 transition-transform" data-value="5">⭐</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <button id="kirim-refleksi" class="bg-purple-500 text-white border-4 border-black font-bold text-xl py-3 px-8 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">Kirim Refleksi</button>
+        </div>
+
+        <div id="refleksi-result" class="hidden mt-8 text-center text-xl font-bold p-6 bg-purple-100 border-4 border-black rounded-xl text-purple-800">
+            Terima kasih atas refleksimu! Jawabanmu sangat berarti. Tetap semangat belajar Fisika ya! 🚀
+        </div>
+    </div>
+
     <footer class="text-center mt-12 mb-8 text-gray-500 font-sans font-bold">
         Dibuat untuk mempermudah belajar Fisika SMA. Semangat! 🚀
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
+        // --- LOGIKA KUIS INTERAKTIF ---
+        let selectedAnswers = {1: null, 2: null, 3: null};
+        
+        // Fungsi saat opsi ditekan
+        function selectOption(btn, qNum) {
+            // Reset gaya semua opsi dalam pertanyaan ini
+            const siblings = btn.parentElement.querySelectorAll('.quiz-opt');
+            siblings.forEach(s => {
+                s.classList.remove('bg-blue-200', 'border-blue-600');
+                s.classList.add('bg-white', 'border-black');
+            });
+            
+            // Tambahkan gaya "terpilih" pada tombol yang diklik
+            btn.classList.remove('bg-white', 'border-black');
+            btn.classList.add('bg-blue-200', 'border-blue-600');
+            
+            // Simpan status kebenaran jawaban
+            selectedAnswers[qNum] = btn.getAttribute('data-correct') === 'true';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Logika Tombol Cek Jawaban
+            const btnCek = document.getElementById('cek-jawaban');
+            if (btnCek) {
+                btnCek.addEventListener('click', () => {
+                    let score = 0;
+                    let totalMcq = Object.keys(selectedAnswers).length;
+                    let allMcqAnswered = true;
+
+                    // Cek kelengkapan Pilihan Ganda
+                    for(let i = 1; i <= totalMcq; i++) {
+                        if(selectedAnswers[i] === null) {
+                            allMcqAnswered = false;
+                        }
+                    }
+
+                    // Cek kelengkapan Menjodohkan
+                    const matchSelects = document.querySelectorAll('.match-select');
+                    let allMatchAnswered = true;
+                    matchSelects.forEach(select => {
+                        if(select.value === "") {
+                            allMatchAnswered = false;
+                        }
+                    });
+
+                    if(!allMcqAnswered || !allMatchAnswered) {
+                        alert("Pilih jawaban untuk SEMUA pertanyaan (Pilihan Ganda & Menjodohkan) dulu ya!");
+                        return;
+                    }
+
+                    // Tampilkan hasil setiap soal Pilihan Ganda
+                    for(let i = 1; i <= totalMcq; i++) {
+                        const qDiv = document.querySelectorAll('.quiz-q')[i-1];
+                        const feedback = qDiv.querySelector('.feedback');
+                        feedback.classList.remove('hidden', 'text-green-600', 'text-red-600');
+                        
+                        if(selectedAnswers[i] === true) {
+                            score++;
+                            feedback.textContent = "✅ Benar! Sesuai dengan konsep di komik!";
+                            feedback.classList.add('text-green-600');
+                        } else {
+                            feedback.textContent = "❌ Masih kurang tepat, coba baca lagi komik di atas ya!";
+                            feedback.classList.add('text-red-600');
+                        }
+                    }
+
+                    // Tampilkan hasil setiap soal Menjodohkan
+                    matchSelects.forEach(select => {
+                        // Bersihkan style lama
+                        select.classList.remove('border-black', 'border-green-500', 'border-red-500', 'text-green-700', 'text-red-700', 'bg-green-50', 'bg-red-50');
+                        
+                        if(select.value === select.getAttribute('data-correct')) {
+                            score++;
+                            select.classList.add('border-green-500', 'text-green-700', 'bg-green-50');
+                        } else {
+                            select.classList.add('border-red-500', 'text-red-700', 'bg-red-50');
+                        }
+                    });
+
+                    // Tampilkan kotak hasil akhir (Total 8 Soal)
+                    let totalQuestions = totalMcq + matchSelects.length;
+                    const resultDiv = document.getElementById('quiz-result');
+                    resultDiv.classList.remove('hidden', 'bg-green-100', 'bg-yellow-100');
+                    
+                    if(score === totalQuestions) {
+                        resultDiv.textContent = `Luar Biasa! Skor kamu ${score}/${totalQuestions} 🌟 Budi dan Siti pasti bangga padamu!`;
+                        resultDiv.classList.add('bg-green-100');
+                    } else if (score >= 5) {
+                        resultDiv.textContent = `Hebat! Skor kamu ${score}/${totalQuestions}. Sedikit lagi jadi master fisika! 👍`;
+                        resultDiv.classList.add('bg-green-100');
+                    } else {
+                        resultDiv.textContent = `Skor kamu ${score}/${totalQuestions}. Yuk ingat-ingat lagi ceritanya Budi dan Siti! 💪`;
+                        resultDiv.classList.add('bg-yellow-100');
+                    }
+                });
+            }
+
+            // --- LOGIKA KOMIK INTERAKTIF ---
             // Kecualikan #school-bell agar memiliki interaksi khusus
             const emojis = document.querySelectorAll('.scene span:not(#school-bell)');
             const comicWords = ["BAM!", "POW!", "ZAP!", "BOING!", "KLIK!", "WOOSH!", "PLOP!", "ZING!"];
@@ -699,7 +979,64 @@
                     }, 2500);
                 });
             }
+
+            // --- LOGIKA REFLEKSI BELAJAR ---
+            const stars = document.querySelectorAll('.star');
+            let currentRating = 0;
+
+            // Logika Hover & Click Bintang
+            stars.forEach(star => {
+                star.addEventListener('click', (e) => {
+                    currentRating = parseInt(e.target.getAttribute('data-value'));
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) <= currentRating) {
+                            s.classList.remove('grayscale');
+                        } else {
+                            s.classList.add('grayscale');
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseenter', (e) => {
+                    const hoverValue = parseInt(e.target.getAttribute('data-value'));
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) <= hoverValue) {
+                            s.classList.remove('grayscale');
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseleave', () => {
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) > currentRating) {
+                            s.classList.add('grayscale');
+                        }
+                    });
+                });
+            });
+
+            // Logika Tombol Kirim Refleksi
+            const btnRefleksi = document.getElementById('kirim-refleksi');
+            if (btnRefleksi) {
+                btnRefleksi.addEventListener('click', () => {
+                    document.getElementById('refleksi-result').classList.remove('hidden');
+                    btnRefleksi.innerText = "Terkirim! ✔️";
+                    btnRefleksi.classList.remove('bg-purple-500', 'hover:translate-y-1', 'hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]');
+                    btnRefleksi.classList.add('bg-gray-400', 'translate-y-1', 'shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]', 'cursor-not-allowed');
+                    btnRefleksi.disabled = true;
+                    
+                    // Menonaktifkan input (opsional, agar terlihat seperti form sungguhan)
+                    const textareas = document.querySelectorAll('textarea');
+                    textareas.forEach(ta => {
+                        ta.disabled = true;
+                        ta.classList.add('bg-gray-100');
+                    });
+                });
+            }
         });
+
+        // Ekspor ke global window agar onclick di elemen HTML bisa memanggilnya
+        window.selectOption = selectOption;
     </script>
 </body>
 </html>
